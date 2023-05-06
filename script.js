@@ -58,3 +58,25 @@ overlay.addEventListener('click', closeModalFunc);
 closeModal.addEventListener('click', closeModalFunc);
 
 //Major take away is that you can create several functions and then add pass them into multiple listener methods
+
+//We want to create a keyboard event. WHere we use 'escape' key to close
+//e // event //ex
+document.addEventListener('keydown', function (event) {
+  let Escape = event.key;
+
+  console.log(event.key);
+  //   if (event.key === 'Escape') {
+  //     modal.classList.add('hidden');
+  //     overlay.classList.add('hidden');
+  //   }
+
+  //This works but we only want to close the modal when it is visible.
+  //i.e if it contains the class hidden or not
+
+  if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+    // modal.classList.add('hidden');
+    // overlay.classList.add('hidden');
+    //OR
+    closeModalFunc();
+  }
+});
